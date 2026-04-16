@@ -1,0 +1,25 @@
+{
+    "player": {
+        "name": "iLLTone",
+        "level": 266,
+        "kills": 1373,
+        "damage": 280064
+    },
+    "legends": [
+        {
+            "legend": "Global",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Octane",
+            "kills": 783,
+            "damage": 280064
+        },
+        {
+            "legend": "Ash",
+            "kills": 791,
+            "damage": null
+        }
+    ]
+}

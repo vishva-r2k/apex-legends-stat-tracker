@@ -1,0 +1,33 @@
+{
+    "player": {
+        "name": "iLLTone",
+        "platform": "PC",
+        "level": 269,
+        "kills": 1373,
+        "damage": 280064
+    },
+    "legends": [
+        {
+            "legend": "Octane",
+            "kills": 582,
+            "damage": 280064
+        },
+        {
+            "legend": "Ash",
+            "kills": 791,
+            "damage": null
+        }
+    ],
+    "rank": {
+        "rankName": "Platinum",
+        "rankDiv": 2,
+        "rankScore": 10757
+    },
+    "prediction": {
+        "entry_cost_per_game": 45,
+        "avg_gross_rp_per_game": 125.0,
+        "avg_net_rp_per_game": 80.0,
+        "rp_needed": 1243,
+        "games_needed": 16
+    }
+}

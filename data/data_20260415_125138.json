@@ -1,0 +1,150 @@
+{
+    "player": {
+        "name": "Imperialhal",
+        "level": 283,
+        "kills": null,
+        "damage": null
+    },
+    "legends": [
+        {
+            "legend": "Global",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Revenant",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Crypto",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Horizon",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Gibraltar",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Wattson",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Fuse",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Bangalore",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Wraith",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Octane",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Bloodhound",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Caustic",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Lifeline",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Pathfinder",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Loba",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Mirage",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Rampart",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Valkyrie",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Seer",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Ash",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Mad Maggie",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Newcastle",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Vantage",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Catalyst",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Ballistic",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Conduit",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Alter",
+            "kills": null,
+            "damage": null
+        },
+        {
+            "legend": "Sparrow",
+            "kills": null,
+            "damage": null
+        }
+    ]
+}

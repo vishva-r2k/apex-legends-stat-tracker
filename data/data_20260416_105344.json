@@ -1,0 +1,26 @@
+{
+    "player": {
+        "name": "iLLTone",
+        "level": 269,
+        "kills": 1373,
+        "damage": 280064
+    },
+    "legends": [
+        {
+            "legend": "Octane",
+            "kills": 582,
+            "damage": 280064
+        },
+        {
+            "legend": "Ash",
+            "kills": 791,
+            "damage": null
+        }
+    ],
+    "rank": {
+        "rankName": "Platinum",
+        "rankDiv": 2,
+        "rankScore": 10757
+    },
+    "prediction": null
+}
