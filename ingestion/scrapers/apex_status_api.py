@@ -1,22 +1,26 @@
 import requests
 from ingestion.analytics.rank_predictor import predict_games
 
-import os
-API_KEY = os.environ.get("APEX_API_KEY")
+# Input API key here
+API_KEY = ""
 
-def fetch_player_stats(player_name):
+def fetch_player_stats(player_name, platform):
     url = "https://api.mozambiquehe.re/bridge?auth=YOUR_API_KEY&player=PLAYER_NAME&platform=PLATFORM"
 
     params = {
         "auth": API_KEY,
         "player": player_name,
-        "platform": "PC"
+        "platform": platform
     }
 
     response = requests.get(url, params=params)
 
+    if response.status_code == 404:
+        print(f"\nPlayer '{player_name}' not found. Please check the name and platform and try again.")
+        return None
+    
     if response.status_code != 200:
-        print("Error:", response.status_code)
+        print(f"\nError: {response.status_code}")
         print(response.text)
         return None
 
@@ -77,8 +81,9 @@ def parse_rank_info(data):
 from ingestion.processors.save_data import save_to_file
 
 if __name__ == "__main__":
-    player_name = input("Enter player name: ")
-    data = fetch_player_stats(player_name)
+    player_name = input("Enter player name (case sensitive): ")
+    platform = input("Enter platform (PC/Playstation/Xbox): ")
+    data = fetch_player_stats(player_name, platform)
 
     if not data:
         print("No data returned.")
