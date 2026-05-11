@@ -10,10 +10,10 @@ RANK_THRESHOLDS = {
 
 ENTRY_COSTS = {
     "Rookie": 0,
-    "Bronze": 5,
+    "Bronze": 10,
     "Silver": 20,
-    "Gold": 35,
-    "Platinum": 45,
+    "Gold": 38,
+    "Platinum": 48,
     "Diamond": 65,
     "Masters": 90,
 }

@@ -1,8 +1,9 @@
 import requests
 from ingestion.analytics.rank_predictor import predict_games
+from ingestion.analytics.mmr_estimator import estimate_mmr_gap
 
 # Input API key here
-API_KEY = ""
+API_KEY = "c017b2fe425492c4dd9a07cba1ae7901"
 
 def fetch_player_stats(player_name, platform):
     url = "https://api.mozambiquehe.re/bridge?auth=YOUR_API_KEY&player=PLAYER_NAME&platform=PLATFORM"
@@ -99,28 +100,55 @@ if __name__ == "__main__":
 
     session_rp = int(input("\nHow much RP did you gain this session? "))
     session_games = int(input("How many games did you play this session? "))
-    target_rank = input("What rank do you want to reach? (Silver/Gold/Platinum/Diamond/Masters): ")
 
-    if target_rank.lower() in ["master", "masters"]:
-        target_rank = "Masters"
-        target_div = "I"
-    else:
-        target_div = input("What division? (IV/III/II/I): ")
-
-    prediction = predict_games(rank["rankScore"], session_rp, session_games, rank["rankName"], target_rank, target_div)
+    # Rank predictor
+    rank_predict_choice = input("\nWould you like a rank prediction? (yes/no): ").strip().lower()
     
-    if prediction:
-        print(f"\nEntry cost per game: {prediction['entry_cost_per_game']} RP")
-        print(f"Average gross RP per game: {prediction['avg_gross_rp_per_game']}")
-        print(f"Average net RP per game (after entry cost): {prediction['avg_net_rp_per_game']}")
-        print(f"RP needed: {prediction['rp_needed']}")
-        print(f"At your current rate, you'll hit {target_rank} {target_div} in {prediction['games_needed']} games.")
+    prediction = None
+    if rank_predict_choice == "yes":
+        target_rank = input("What rank do you want to reach? (Silver/Gold/Platinum/Diamond/Masters): ")
+
+        if target_rank.lower() in ["master", "masters"]:
+            target_rank = "Masters"
+            target_div = "I"
+        else:
+            target_div = input("What division? (IV/III/II/I): ")
+
+        prediction = predict_games(rank["rankScore"], session_rp, session_games, rank["rankName"], target_rank, target_div)
+
+        if prediction:
+            print(f"\nEntry cost per game: {prediction['entry_cost_per_game']} RP")
+            print(f"Average gross RP per game: {prediction['avg_gross_rp_per_game']}")
+            print(f"Average net RP per game (after entry cost): {prediction['avg_net_rp_per_game']}")
+            print(f"RP needed: {prediction['rp_needed']}")
+            print(f"At your current rate, you'll hit {target_rank} {target_div} in {prediction['games_needed']} games.")
+
+    # MMR estimator — completely separate
+    mmr_choice = input("\nWould you like an MMR estimate? (yes/no): ").strip().lower()
+
+    mmr_estimate = None
+    if mmr_choice == "yes":
+        mmr_estimate = estimate_mmr_gap(rank["rankName"], session_rp, session_games)
+
+        if mmr_estimate:
+            print(f"\n--- MMR ESTIMATE ---")
+            print(f"Visible Rank:         {mmr_estimate['visible_rank']}")
+            print(f"Estimated MMR Rank:   {mmr_estimate['estimated_mmr_rank']}")
+            print(f"Avg Net RP per game:  {mmr_estimate['avg_net_rp_per_game']}")
+            print(f"Expected for rank:    {mmr_estimate['expected_avg_net_rp']}")
+            print(f"Performance diff:     {mmr_estimate['performance_diff']} RP")
+            print(f"Confidence:           {mmr_estimate['confidence']}")
+            print(f"\n{mmr_estimate['gap_message']}")
+            print(f"--------------------")
+            print("\nNOTE: This is an estimate based on session performance.")
+            print("Your actual MMR is hidden by Respawn and cannot be read directly.")
 
     output = {
         "player": player,
         "legends": legends,
         "rank": rank,
-        "prediction": prediction
+        "prediction": prediction,
+        "mmr_estimate": mmr_estimate
     }
 
     save_to_file(output)
