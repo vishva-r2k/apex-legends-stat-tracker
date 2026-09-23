@@ -1,6 +1,8 @@
 import requests
 from ingestion.analytics.rank_predictor import predict_games
 from ingestion.analytics.mmr_estimator import estimate_mmr_gap
+from ingestion.processors.save_data import save_to_file
+from ingestion.processors.dynamo_save import save_to_dynamo
 
 # Input API key here
 API_KEY = "c017b2fe425492c4dd9a07cba1ae7901"
@@ -152,3 +154,4 @@ if __name__ == "__main__":
     }
 
     save_to_file(output)
+    save_to_dynamo(output)
