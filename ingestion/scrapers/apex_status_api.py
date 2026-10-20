@@ -4,6 +4,7 @@ from ingestion.analytics.rank_predictor import predict_games
 from ingestion.analytics.mmr_estimator import estimate_mmr_gap
 from ingestion.processors.save_data import save_to_file
 from ingestion.processors.dynamo_save import save_to_dynamo
+from ingestion.processors.s3_save import save_to_s3
 
 API_KEY = os.environ.get("APEX_API_KEY")
 
@@ -153,3 +154,4 @@ if __name__ == "__main__":
 
     save_to_file(output)
     save_to_dynamo(output)
+    save_to_s3(output)

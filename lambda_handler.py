@@ -8,6 +8,7 @@ from ingestion.scrapers.apex_status_api import (
 from ingestion.analytics.rank_predictor import predict_games
 from ingestion.analytics.mmr_estimator import estimate_mmr_gap
 from ingestion.processors.dynamo_save import save_to_dynamo
+from ingestion.processors.s3_save import save_to_s3
 
 def lambda_handler(event, context):
     try:
@@ -73,6 +74,7 @@ def lambda_handler(event, context):
         }
 
         save_to_dynamo(output)
+        save_to_s3(output)
 
         return {
             "statusCode": 200,
